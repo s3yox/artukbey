@@ -28,54 +28,52 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup>
+import { useCartStore } from '~/stores/cart';
 
-export default defineComponent({
-  name: 'ProductList',
-  data() {
-    return {
-      placeholderImage: 'https://via.placeholder.com/200', // Varsayılan görsel
-      products: [
-        {
-          id: 1,
-          title: 'Artukbey Filtre Kahve 1 kg',
-          image: 'https://static.ticimax.cloud/cdn-cgi/image/width=380,quality=85/2571/uploads/urunresimleri/buyuk/artukbey-filtre-kahve-1-kg--a09e-.jpg',
-          price: '₺710,00',
-        },
-        {
-          id: 2,
-          title: 'Guatemala (Filtre Kahve Çekirdeği) 250 Gr',
-          image: 'https://static.ticimax.cloud/cdn-cgi/image/width=380,quality=85/2571/uploads/urunresimleri/buyuk/guatemala-filtre-kahve-cekirdegi-250-g--5828-.jpg',
-          price: '₺360,00',
-        },
-        {
-          id: 3,
-          title: 'Blend (Filtre Kahve) 250 Gr',
-          image: 'https://static.ticimax.cloud/cdn-cgi/image/width=380,quality=85/2571/uploads/urunresimleri/buyuk/blend-filtre-kahve-250-gr--46e0-.jpg',
-          price: '₺360,00',
-        },
-        {
-          id: 4,
-          title: 'Classic (Filtre Kahve) 250 Gr',
-          image: 'https://static.ticimax.cloud/cdn-cgi/image/width=380,quality=85/2571/uploads/urunresimleri/buyuk/classic-filtre-kahve-250-gr-0-5e88.jpg',
-          price: '₺230,00',
-        },
-        {
-          id: 5,
-          title: 'Columbia (Filtre Kahve) 250 Gr',
-          image: 'https://static.ticimax.cloud/cdn-cgi/image/width=380,quality=85/2571/uploads/urunresimleri/buyuk/columbia-filtre-kahve-250-gr-1d-8e6.jpg',
-          price: '₺310,00',
-        },
-      ],
-    };
+// Pinia Store'u Kullan
+const cartStore = useCartStore();
+
+// Sepete ürün ekleme işlemi
+function addToCart(product) {
+  cartStore.addToCart(product);
+  alert(`${product.title} sepete eklendi!`);
+}
+
+// Ürün listesi
+const placeholderImage = 'https://via.placeholder.com/200';
+const products = [
+  {
+    id: 1,
+    title: 'Artukbey Filtre Kahve 1 kg',
+    image: 'https://static.ticimax.cloud/cdn-cgi/image/width=466,quality=99/2571/uploads/sayfatasarim/sayfa1/title-76dd84d6-c.jpg',
+    price: '₺710,00',
   },
-  methods: {
-    addToCart(product: any) {
-      alert(`${product.title} sepete eklendi!`);
-    },
+  {
+    id: 2,
+    title: 'Guatemala (Filtre Kahve Çekirdeği) 250 Gr',
+    image: 'https://static.ticimax.cloud/cdn-cgi/image/width=466,quality=99/2571/uploads/sayfatasarim/sayfa1/title-e961f765-b.jpg',
+    price: '₺360,00',
   },
-});
+  {
+    id: 3,
+    title: 'Blend (Filtre Kahve) 250 Gr',
+    image: 'https://static.ticimax.cloud/cdn-cgi/image/width=466,quality=99/2571/uploads/sayfatasarim/sayfa1/title-2f4dc9cc-2.jpg',
+    price: '₺360,00',
+  },
+  {
+    id: 4,
+    title: 'Classic (Filtre Kahve) 250 Gr',
+    image: 'https://static.ticimax.cloud/cdn-cgi/image/width=466,quality=99/2571/uploads/sayfatasarim/sayfa1/title-b83b51d7-a.jpg',
+    price: '₺230,00',
+  },
+  {
+    id: 5,
+    title: 'Columbia (Filtre Kahve) 250 Gr',
+    image: 'https://static.ticimax.cloud/cdn-cgi/image/width=466,quality=99/2571/uploads/sayfatasarim/sayfa1/title-f2b71acb-4.jpg',
+    price: '₺310,00',
+  },
+];
 </script>
 
 <style scoped>
@@ -124,7 +122,7 @@ export default defineComponent({
 
 .product-img {
   width: 100%;
-  height: 200px; /* Sabit yükseklik verildi */
+  height: 300px; /* Sabit yükseklik verildi */
   object-fit: cover; /* Görselin kesilmeden uyumlu olmasını sağlar */
   border-radius: 10px;
 }

@@ -1,37 +1,34 @@
 <template>
-    <div class="order-tracking-container">
-      <h6 class="title">Sipariş Takip</h6>
-      <div class="order-form">
-        <!-- E-posta Girişi -->
-        <label for="email" class="label">E-posta Adresiniz</label>
-        <input
-          id="email"
-          v-model="email"
-          type="email"
-          class="input"
-          placeholder="mail@site.com"
-        />
-  
-        <!-- Sipariş Numarası Girişi -->
-        <label for="order-number" class="label">Sipariş Numaranız</label>
-        <input
-          id="order-number"
-          v-model="orderNumber"
-          type="text"
-          class="input"
-          placeholder="668CW73351"
-        />
-  
-        <!-- Sorgula Butonu -->
-        <button
-          class="button"
-          @click="checkOrder"
-        >
-          Sorgula
-        </button>
-      </div>
+  <div class="order-tracking-container">
+    <h6 class="title">Sipariş Takip</h6>
+    <div class="order-form">
+      <!-- E-posta Girişi -->
+      <label for="email" class="label">E-posta Adresiniz</label>
+      <input
+        id="email"
+        v-model="email"
+        type="email"
+        class="input"
+        placeholder="mail@site.com"
+      />
+
+      <!-- Sipariş Numarası Girişi -->
+      <label for="order-number" class="label">Sipariş Numaranız</label>
+      <input
+        id="order-number"
+        v-model="orderNumber"
+        type="text"
+        class="input"
+        placeholder="668CW73351"
+      />
+
+      <!-- Sorgula Butonu -->
+      <button class="button" @click="checkOrder">
+        Sorgula
+      </button>
     </div>
-  </template>
+  </div>
+</template>
   
   <script setup lang="ts">
   import { ref } from "vue";
@@ -47,10 +44,10 @@
   <style scoped>
   /* Genel Konteyner */
   .order-tracking-container {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    padding: 20px;
-  }
+  font-family: 'Windsor', 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
   
   /* Başlık */
   .title {
@@ -60,8 +57,8 @@
   
   /* Form Kutusu */
   .order-form {
-    margin: 0 auto;
-    width: 800px;
+    margin: left;
+    width: 500px;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -71,6 +68,7 @@
   
   /* Etiket */
   .label {
+    font-family: 'Windsor', Arial, sans-serif;
     display: block;
     text-align: left;
     margin: 10px 0 5px;
@@ -81,6 +79,7 @@
   
   /* Giriş Alanı */
   .input {
+    font-family: 'Windsor', Arial, sans-serif;
     width: 100%;
     padding: 10px;
     font-size: 1rem;
@@ -99,6 +98,13 @@
     
   }
   
+  @font-face {
+  font-family: 'Windsor';
+  src: url('/fonts/windsor-regular.woff2') format('woff2'),
+       url('/fonts/windsor-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
   /* Buton */
   .button {
     padding: 10px 20px;
